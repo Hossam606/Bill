@@ -15,22 +15,31 @@ namespace Invoice_Task
     {
 
         /// <summary>
-        /// Button1 control.
+        /// SaveButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button SaveButton;
 
         /// <summary>
-        /// Button2 control.
+        /// DeleteButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Button DeleteButton;
+
+        /// <summary>
+        /// invoiceDetailsTable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTable invoiceDetailsTable;
 
         /// <summary>
         /// LabelMan control.
@@ -75,7 +84,7 @@ namespace Invoice_Task
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox CheckBox1;
 
         /// <summary>
         /// TextQuantity control.
@@ -102,7 +111,7 @@ namespace Invoice_Task
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox2;
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox CheckBox2;
 
         /// <summary>
         /// TextBox1 control.
@@ -129,7 +138,7 @@ namespace Invoice_Task
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox3;
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox CheckBox3;
 
         /// <summary>
         /// TextBox3 control.

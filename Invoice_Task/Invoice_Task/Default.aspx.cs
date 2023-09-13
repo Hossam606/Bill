@@ -12,26 +12,40 @@ namespace Invoice_Task
         Invoice_TaskEntities db =new Invoice_TaskEntities();
         protected void Page_Load(object sender, EventArgs e)
         {
-             
 
+            var all = from i in db.Invoices
+                      select i.Item_Name;
+            string x ="ssds";
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void SaveButton_Click(object sender, EventArgs e)
         {
+            List<Invoice> invoicesList = new List<Invoice>();
             
+            foreach (TableRow row in invoiceDetailsTable.Rows)
+            {
+                // Skip the header row
+                if (row.TableSection == TableRowSection.TableHeader)
+                    continue;
+            
+                Invoice invoice = new Invoice();
+
+                invoice.Item_Name = row.Cells[1].Text;
+                invoice.Quntity = Convert.ToInt32(((TextBox)row.Cells[2].FindControl("TextQuantity")).Text);
+                invoice.Unit_Price = Convert.ToDecimal(((TextBox)row.Cells[3].FindControl("TextUnitPrice")).Text);
+                invoice.Total = Convert.ToDecimal(row.Cells[4].Text);
+
+                
+                invoicesList.Add(invoice);
+            }
+
+            // Save the invoices to the database
+             
+                db.Invoices.AddRange(invoicesList);
+                db.SaveChanges();
+             
         }
 
-        protected void Button2_Click(object sender, EventArgs e)
-        {
-            var myinvoice = new Invoice
-            {
-                Item_Name = "Iphone 14",
-                Quntity = 2,
-                Unit_Price = 2,
-                Total = 4
-            };
-            db.Invoices.Add(myinvoice);
-            db.SaveChanges();
-        }
+         
     }
 }

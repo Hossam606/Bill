@@ -3,13 +3,14 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      
-    <div class="content-body">
+   
+          <div class="content-body" runat="server">
             <div class="container-fluid">
                 <div class="row page-titles">
-                    <div class="col p-md-0">
+                    <div class="col">
                         <h4>Create Invoice</h4>
                     </div>
-                    <div class="col p-md-0">
+                    <div class="col">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a>
                             </li>
@@ -27,16 +28,16 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                          
-                                        <asp:Button class="btn btn-primary btn-sl-lg mr-3" ID="Button1" runat="server" Text="Save bill in DB" OnClick="Button1_Click" Width="193px" />
-                                        <asp:Button class="btn btn-info  " ID="Button2" runat="server" Text="Delete selected rows" />
-                                           
+                                        <asp:Button class="btn btn-primary btn-sl-lg mr-3" ID="SaveButton" runat="server" Text="Save bill in DB" OnClick="SaveButton_Click" Width="193px" />
+                                        <asp:Button class="btn btn-danger btn-sl-lg mr-3" ID="DeleteButton" runat="server" Text="Delete selected rows" OnClientClick="deleteSelectedRows(); return false;" />
+ 
                                     </div>
                                 </div>
 
                                 <div class="row mt-5">
                                     <div class="col-lg-12">
                                         <div class="create-invoice-table table-responsive">
-                                            <table class="table invoice-details-table" style="min-width: 620px;">
+                                            <table id="invoiceDetailsTable" class="table invoice-details-table" runat="server" style="min-width: 620px;">
                                                 <thead>
                                                     <tr>
                                                         
@@ -51,54 +52,44 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <%--<td><input type="checkbox"  /></td>--%>
-                                                        <td><asp:CheckBox ID="CheckBox1" runat="server" /> </td>
-                                                        <td class="muted-text">item 1</td>
-                                                       
-                                                        <td class="quantity muted-text">
-                                                            <asp:TextBox ID="TextQuantity" style="text-align:center;" runat="server" onchange="calculateRowTotal(this.closest('tr'))"></asp:TextBox>
-                                                            <%--<input  style="text-align:center;" value="1" type="text">--%>
-                                                        </td>
-                                                        <td class="unit-price muted-text">
-                                                            <%--<input  style="text-align:center;" value="1" type="text">--%>
-                                                            <asp:TextBox ID="TextUnitPrice" style="text-align:center;" runat="server" onchange="calculateRowTotal(this.closest('tr'))"></asp:TextBox>
-                                                        </td>
-                                                        <td class="text-primary total"><span>0.00</span></td>
+                                                   <tr>
+                                                       <%--<td><asp:CheckBox ID="CheckBox1" runat="server" /> </td>--%>
+                                                       <td><input type="checkbox" ID="CheckBox1" runat="server"/></td>
 
-                                                    </tr>
-                                                    <tr>
-                                                        <%--<td><input type="checkbox"  /></td>--%>
-                                                        <td><asp:CheckBox ID="CheckBox2" runat="server" /> </td>
-                                                        <td class="muted-text">item 1</td>
-                                                       
-                                                        <td class="muted-text">
-                                                            <asp:TextBox ID="TextBox1" style="text-align:center;" runat="server"></asp:TextBox>
-                                                            <%--<input  style="text-align:center;" value="1" type="text">--%>
-                                                        </td>
-                                                        <td class="muted-text">
-                                                            <%--<input  style="text-align:center;" value="1" type="text">--%>
-                                                            <asp:TextBox ID="TextBox2" style="text-align:center;" runat="server"></asp:TextBox>
-                                                        </td>
-                                                        <td class="text-primary"><span>0.00</span></td>
+                                                       <td class="muted-text">item 1</td>
+                                                       <td class="quantity muted-text">
+                                                           <asp:TextBox ID="TextQuantity" style="text-align:center;" runat="server" onchange="calculateRowTotal(this.closest('tr'))"></asp:TextBox>
+                                                       </td>
+                                                       <td class="unit-price muted-text">
+                                                           <asp:TextBox ID="TextUnitPrice" style="text-align:center;" runat="server" onchange="calculateRowTotal(this.closest('tr'))"></asp:TextBox>
+                                                       </td>
+                                                       <td class="text-primary total"><span>0.00</span></td>
+                                                   </tr>
+                                                   <tr>
+                                                       <%--<td><asp:CheckBox ID="CheckBox2" runat="server" /> </td>--%>
+                                                       <td><input type="checkbox" ID="CheckBox2" runat="server"/></td>
 
-                                                    </tr>
-                                                    <tr>
-                                                        <%--<td><input type="checkbox"  /></td>--%>
-                                                        <td><asp:CheckBox ID="CheckBox3" runat="server" /> </td>
-                                                        <td class="muted-text">item 1</td>
-                                                       
-                                                        <td class="muted-text">
-                                                            <asp:TextBox ID="TextBox3" style="text-align:center;" runat="server"></asp:TextBox>
-                                                            <%--<input  style="text-align:center;" value="1" type="text">--%>
-                                                        </td>
-                                                        <td class="muted-text">
-                                                            <%--<input  style="text-align:center;" value="1" type="text">--%>
-                                                            <asp:TextBox ID="TextBox4" style="text-align:center;" runat="server"></asp:TextBox>
-                                                        </td>
-                                                        <td class="text-primary"><span>0.00</span></td>
-
-                                                    </tr>
+                                                       <td class="muted-text">item 1</td>
+                                                       <td class="quantity muted-text">
+                                                           <asp:TextBox ID="TextBox1" style="text-align:center;" runat="server" onchange="calculateRowTotal(this.closest('tr'))"></asp:TextBox>
+                                                       </td>
+                                                       <td class="unit-price muted-text">
+                                                           <asp:TextBox ID="TextBox2" style="text-align:center;" runat="server" onchange="calculateRowTotal(this.closest('tr'))"></asp:TextBox>
+                                                       </td>
+                                                       <td class="text-primary total"><span>0.00</span></td>
+                                                   </tr>
+                                                   <tr>
+                                                       <%--<td><asp:CheckBox ID="CheckBox3" runat="server" /> </td>--%>
+                                                       <td><input type="checkbox" ID="CheckBox3" runat="server"/></td>
+                                                       <td class="muted-text">item 1</td>
+                                                       <td class="quantity muted-text">
+                                                           <asp:TextBox ID="TextBox3" style="text-align:center;" runat="server" onchange="calculateRowTotal(this.closest('tr'))"></asp:TextBox>
+                                                       </td>
+                                                       <td class="unit-price muted-text">
+                                                           <asp:TextBox ID="TextBox4" style="text-align:center;" runat="server" onchange="calculateRowTotal(this.closest('tr'))"></asp:TextBox>
+                                                       </td>
+                                                       <td class="text-primary total"><span>0.00</span></td>
+                                                   </tr>
                                                      
                                                      
                                                     <tr>
@@ -106,10 +97,8 @@
                                                         <td></td>
                                                         <td></td>
                                                         <td>Net</td>
-                                                        <td class="text-primary"><span>0.000</span></td>
-                                                    </tr>
-                                                     
-                                                     
+                                                        <td class="text-primary net-total"><span>0.000</span></td>
+                                                    </tr>                                               
                                                 </tbody>
                                             </table>
                                         </div>
@@ -122,7 +111,11 @@
             </div>
             <!-- #/ container -->
         </div>
-         
      
+
+
+    
+
+
     <script src="js/JavaScript.js"></script>
 </asp:Content>

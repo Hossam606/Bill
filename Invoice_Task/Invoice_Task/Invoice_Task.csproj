@@ -3622,7 +3622,6 @@
     <Content Include="assets\plugins\x-editable\dist\bootstrap3-editable\img\loading.gif" />
     <Content Include="assets\plugins\x-editable\dist\bootstrap3-editable\js\bootstrap-editable.min.js" />
     <Content Include="Default.aspx" />
-    <Content Include="HtmlPage2.html" />
     <Content Include="icons\cryptocoins\css\cryptocoins-colors.css" />
     <Content Include="icons\cryptocoins\css\cryptocoins.css" />
     <Content Include="icons\flag-icon-css\flag-icon.min.css" />
@@ -3915,15 +3914,15 @@
     <Content Include="Images\favicon.png" />
     <Content Include="Images\logo-text.png" />
     <Content Include="Images\logo.png" />
-    <Content Include="Invoice_Task.Context.tt">
+    <Content Include="InvoiceTask.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Invoice_Task.edmx</DependentUpon>
-      <LastGenOutput>Invoice_Task.Context.cs</LastGenOutput>
+      <DependentUpon>InvoiceTask.edmx</DependentUpon>
+      <LastGenOutput>InvoiceTask.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Invoice_Task.tt">
+    <Content Include="InvoiceTask.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Invoice_Task.edmx</DependentUpon>
-      <LastGenOutput>Invoice_Task.cs</LastGenOutput>
+      <DependentUpon>InvoiceTask.edmx</DependentUpon>
+      <LastGenOutput>InvoiceTask.cs</LastGenOutput>
     </Content>
     <Content Include="js\common.min.js" />
     <Content Include="js\custom.min.js" />
@@ -4051,22 +4050,22 @@
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Invoice.cs">
-      <DependentUpon>Invoice_Task.tt</DependentUpon>
+      <DependentUpon>InvoiceTask.tt</DependentUpon>
     </Compile>
-    <Compile Include="Invoice_Task.Context.cs">
+    <Compile Include="InvoiceTask.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Invoice_Task.Context.tt</DependentUpon>
+      <DependentUpon>InvoiceTask.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Invoice_Task.cs">
+    <Compile Include="InvoiceTask.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Invoice_Task.tt</DependentUpon>
+      <DependentUpon>InvoiceTask.tt</DependentUpon>
     </Compile>
-    <Compile Include="Invoice_Task.Designer.cs">
+    <Compile Include="InvoiceTask.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Invoice_Task.edmx</DependentUpon>
+      <DependentUpon>InvoiceTask.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site1.Master.cs">
@@ -4334,12 +4333,12 @@
     <Content Include="assets\plugins\tinymce\skins\lightgray\fonts\tinymce.eot" />
     <Content Include="assets\plugins\tinymce\skins\lightgray\fonts\tinymce.ttf" />
     <Content Include="assets\plugins\tinymce\skins\lightgray\fonts\tinymce.woff" />
-    <EntityDeploy Include="Invoice_Task.edmx">
+    <EntityDeploy Include="InvoiceTask.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Invoice_Task.Designer.cs</LastGenOutput>
+      <LastGenOutput>InvoiceTask.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Invoice_Task.edmx.diagram">
-      <DependentUpon>Invoice_Task.edmx</DependentUpon>
+    <Content Include="InvoiceTask.edmx.diagram">
+      <DependentUpon>InvoiceTask.edmx</DependentUpon>
     </Content>
     <None Include="packages.config" />
     <Content Include="Site1.Master" />

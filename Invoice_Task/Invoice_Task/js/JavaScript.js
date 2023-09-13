@@ -19,3 +19,36 @@ function calculateBillNet() {
     document.querySelector('.invoice-details-table .net-total span').textContent = netTotal.toFixed(3);
 }
 
+//function deleteSelectedRows() {
+//    var table = document.querySelector('.invoice-details-table');
+//    var checkboxes = table.querySelectorAll('input[type="checkbox"]');
+
+//    // Loop through the checkboxes and delete the selected rows
+//    for (var i = checkboxes.length - 1; i >= 0; i--) {
+//        if (checkboxes[i].checked) {
+//            var row = checkboxes[i].parentNode.parentNode; 
+//            row.parentNode.removeChild(row);  
+//        }
+//    }
+//}
+function deleteSelectedRows() {
+    var table = document.getElementById("invoiceDetailsTable");
+    var checkboxes = table.querySelectorAll('input[type="checkbox"]:checked');
+
+    for (var i = 0; i < checkboxes.length; i++) {
+        var row = checkboxes[i].closest("tr");
+        table.deleteRow(row.rowIndex);
+    }
+}
+//function deleteSelectedRows() {
+//    // Get all the checkboxes within the table
+//    var checkboxes = document.querySelectorAll('.invoice-details-table input[type="checkbox"]');
+
+//    // Loop through the checkboxes and delete the selected rows
+//    checkboxes.forEach(function (checkbox) {
+//        if (checkbox.checked) {
+//            var row = checkbox.closest('tr');
+//            row.parentNode.removeChild(row);
+//        }
+//    });
+//}
