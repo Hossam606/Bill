@@ -6,15 +6,17 @@ using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace WebApplication2
 {
     /// <summary>
-    /// this web form to test the Create whitout style's file
+    /// this web form to test the Create whitout header and footer
     /// </summary>
     public partial class Test : System.Web.UI.Page
     {
+        SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["Invoice_TaskEntities"].ConnectionString);
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -23,42 +25,51 @@ namespace WebApplication2
 
         protected void SaveButton_Click(object sender, EventArgs e)
         {
-            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
-            {
 
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["Invoice_TaskEntities"].ConnectionString))
+            {
                 connection.Open();
+                var invoiceDetailsTable = (HtmlTable)FindControl("invoiceDetailsTable");
+                var x = invoiceDetailsTable.Rows.Cast<HtmlTableRow>();
 
-            foreach (TableRow row in invoiceDetailsTable.Rows)
-            {
-                // Skip the header row
-                if (row.TableSection == TableRowSection.TableHeader)
-                    continue;
-
-                //CheckBox checkBox = (CheckBox)row.FindControl("CheckBox1");
-                //if (checkBox.Checked)
-                //{
-                string itemName = row.Cells[1].Text;
-                int quantity = int.Parse(((TextBox)row.FindControl("TextQuantity")).Text);
-                decimal unitPrice = decimal.Parse(((TextBox)row.FindControl("TextUnitPrice")).Text);
-                decimal total = Convert.ToDecimal(row.Cells[4].Text);
-
-                // Insert the data into the database
-                string query = "INSERT INTO Invoice (Item_name, Quantity, Unit_price, Total) VALUES (@ItemName, @Quantity, @UnitPrice, @Total)";
-                using (SqlCommand command = new SqlCommand(query, connection))
+                foreach (HtmlTableRow row in invoiceDetailsTable.Rows.Cast<HtmlTableRow>().Skip(1).Take(invoiceDetailsTable.Rows.Count - 2))
                 {
-                    command.Parameters.AddWithValue("@ItemName", itemName);
-                    command.Parameters.AddWithValue("@Quantity", quantity);
-                    command.Parameters.AddWithValue("@UnitPrice", unitPrice);
-                    command.Parameters.AddWithValue("@Total", total);
+                    
+                    var checkBox = (HtmlInputCheckBox)row.FindControl("CheckBox1");
+                    if (!checkBox.Checked  )
+                    {
+                        //if(invoiceDetailsTable.Rows.Cast<HtmlTableRow>()) 
+                        string itemName = row.Cells[1].InnerText;
+                        HtmlInputText quantity = (HtmlInputText)row.FindControl("TextQuantity");
+                        HtmlInputText unitPrice = (((HtmlInputText)row.FindControl("TextUnitPrice")));
 
-                    command.ExecuteNonQuery();
+                        var total = double.Parse(quantity.Value) * double.Parse(unitPrice.Value);
+
+
+                        // Insert the data into the database
+                        string query = "INSERT INTO Invoice (Item_name, Quntity, Unit_price, Total) VALUES (@ItemName, @Quantity, @UnitPrice, @Total)";
+                        using (SqlCommand command = new SqlCommand(query, connection))
+                        {
+                            command.Parameters.AddWithValue("@ItemName", itemName);
+                            command.Parameters.AddWithValue("@Quantity", double.Parse(quantity.Value));
+                            command.Parameters.AddWithValue("@UnitPrice", double.Parse(unitPrice.Value));
+                            command.Parameters.AddWithValue("@Total", total);
+
+                            command.ExecuteNonQuery();
+                        }
+
+                    } 
                 }
-                //}
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Successfully Save');", true);
+
             }
 
-            connection.Close();
-            }
+
+
+
 
         }
+
+
     }
 }

@@ -51,40 +51,40 @@ namespace WebApplication2
         protected global::System.Web.UI.HtmlControls.HtmlTable invoiceDetailsTable;
 
         /// <summary>
-        /// LabelMan control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelMan;
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell Label1;
 
         /// <summary>
-        /// LabelItem control.
+        /// Label2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelItem;
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell Label2;
 
         /// <summary>
-        /// LabelQuan control.
+        /// Label3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelQuan;
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell Label3;
 
         /// <summary>
-        /// LabelUnit_Price control.
+        /// Label4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelUnit_Price;
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell Label4;
 
         /// <summary>
         /// CheckBox1 control.
@@ -96,13 +96,22 @@ namespace WebApplication2
         protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox CheckBox1;
 
         /// <summary>
+        /// item1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell item1;
+
+        /// <summary>
         /// TextQuantity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextQuantity;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText TextQuantity;
 
         /// <summary>
         /// TextUnitPrice control.
@@ -111,7 +120,7 @@ namespace WebApplication2
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextUnitPrice;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText TextUnitPrice;
 
         /// <summary>
         /// CheckBox2 control.
@@ -129,7 +138,7 @@ namespace WebApplication2
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText TextBox1;
 
         /// <summary>
         /// TextBox2 control.
@@ -138,7 +147,7 @@ namespace WebApplication2
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText TextBox2;
 
         /// <summary>
         /// CheckBox3 control.
@@ -156,7 +165,7 @@ namespace WebApplication2
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText TextBox3;
 
         /// <summary>
         /// TextBox4 control.
@@ -165,6 +174,6 @@ namespace WebApplication2
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox4;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText TextBox4;
     }
 }
